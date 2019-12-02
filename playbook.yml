@@ -3,7 +3,6 @@
 # clone update golang repo
 # install my ssh keys
 
-
 roles:
   - geerlingguy.java #
   - geerlingguy.docker #
