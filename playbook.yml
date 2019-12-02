@@ -1,0 +1,16 @@
+- hosts: all
+
+# clone update golang repo
+# install my ssh keys
+
+
+roles:
+  - geerlingguy.java
+  - geerlingguy.docker
+  - tecris.maven
+  - gantsign.visual-studio-code
+  - cmprescott.chrome
+  - fubarhouse.golang
+  - kbrebanov.openvpn
+  - fubarhouse.rust
+  - rockandska.erlang
