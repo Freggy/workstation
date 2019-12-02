@@ -5,12 +5,11 @@
 
 
 roles:
-  - geerlingguy.java
-  - geerlingguy.docker
-  - tecris.maven
+  - geerlingguy.java #
+  - geerlingguy.docker #
+  - tecris.maven #
   - gantsign.visual-studio-code
-  - cmprescott.chrome
-  - fubarhouse.golang
+  - cmprescott.chrome #
+  - fubarhouse.golang #
   - kbrebanov.openvpn
-  - fubarhouse.rust
-  - rockandska.erlang
+  - fubarhouse.rust #
