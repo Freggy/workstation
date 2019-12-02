@@ -1,0 +1,9 @@
+go_version: "1.13.4"
+GOPATH: "/home/{{ user_name }}/go"
+GOROOT: /usr/local/go
+GOPROXY: https://proxy.golang.org
+GO111MODULE: "on"
+GOOS: linux
+GOARCH: amd64
+build_go_from_source: false
+go_custom_mirror: https://storage.googleapis.com/golang
