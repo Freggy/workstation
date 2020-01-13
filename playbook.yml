@@ -1,8 +1,9 @@
 - hosts: all
 
-# clone update golang repo
-# install my ssh keys
-# 
+
+# TODO: clone update golang repo
+# TODO: install my ssh keys
+# TODO: clone configs repository
 
 roles:
   - geerlingguy.java #
@@ -16,3 +17,13 @@ roles:
   - protobuf
   - protobuf-go
   - terraform
+
+tasks:
+- name: Create directories
+  file:
+    path: "/home/yannic/{{ item }}"
+    state: directory    
+    owner: yannic
+    group: yannic
+  with_items:
+    - ["go", "java", "rust", "cpp", "volix", "rewinside", "misc"]
