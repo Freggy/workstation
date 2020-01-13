@@ -1,0 +1,2 @@
+name: Install proto-gen for Go
+shell: go get -u github.com/golang/protobuf/protoc-gen-go

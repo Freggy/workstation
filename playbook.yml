@@ -12,3 +12,5 @@ roles:
   - fubarhouse.golang #
   - kbrebanov.openvpn
   - fubarhouse.rust #
+  - protobuf
+  - protobuf-go
