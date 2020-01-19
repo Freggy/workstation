@@ -3,11 +3,11 @@
 # TODO: install my ssh keys
   pre_tasks:
     - name: Include LinuxMint pre tasks
-      include_tasks: setup-pre-tasks-mint.yml
+      include_tasks: tasks/setup-pre-tasks-mint.yml
       when: ansible_distribution == "LinuxMint"
   post_tasks:
     - name: Include LinuxMint post tasks
-      include_tasks: setup-post-tasks-mint.yml
+      include_tasks: tasks/setup-post-tasks-mint.yml
       when: ansible_distribution == "LinuxMint"
 
   vars_files:
@@ -28,29 +28,5 @@
   - protobuf-go
   - terraform
   tasks:
-  - name: Create directories
-    file:
-      path: "/home/{{ user_name }}/workspace/{{ item }}"
-      state: directory
-      owner: "{{ user_name }}"
-      group: "{{ user_name }}"
-    with_items:
-      - ["go", "java", "rust", "cpp", "volix", "rewinside", "misc"]
-  
-  #- name: Download SSH keys
-    #get_url:
-      #url: /some/url/{{ item }}
-      #dest: "/home/yannic/.ssh/{{ item }}"
-    #with_items:
-      #- [""] # TODO: private SSH keys
-      #- [""] # TODO: public SSH keys
-
-  - name: Clone Update Golang repository
-    git:
-      repo: https://github.com/udhos/update-golang.git
-      dest: "/home/{{ user_name }}/workspace/misc/update-golang"
-
-  - name: Clone repository containing personal configs
-    git:
-      repo: git@github.com:Freggy/configs.git
-      dest: "/home/{{ user_name }}/workspace/misc/configs"
+    - name: Include LinuxMint post tasks
+      include_tasks: tasks/main.yml

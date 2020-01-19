@@ -1,0 +1,26 @@
+  - name: Create directories
+    file:
+      path: "/home/{{ user_name }}/workspace/{{ item }}"
+      state: directory
+      owner: "{{ user_name }}"
+      group: "{{ user_name }}"
+    with_items:
+      - ["go", "java", "rust", "cpp", "volix", "rewinside", "misc"]
+  
+  #- name: Download SSH keys
+    #get_url:
+      #url: /some/url/{{ item }}
+      #dest: "/home/yannic/.ssh/{{ item }}"
+    #with_items:
+      #- [""] # TODO: private SSH keys
+      #- [""] # TODO: public SSH keys
+
+  - name: Clone Update Golang repository
+    git:
+      repo: https://github.com/udhos/update-golang.git
+      dest: "/home/{{ user_name }}/workspace/misc/update-golang"
+
+  - name: Clone repository containing personal configs
+    git:
+      repo: git@github.com:Freggy/configs.git
+      dest: "/home/{{ user_name }}/workspace/misc/configs"
