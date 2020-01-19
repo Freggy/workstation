@@ -20,7 +20,7 @@
       repo: https://github.com/udhos/update-golang.git
       dest: "/home/{{ user_name }}/workspace/misc/update-golang"
 
-  - name: Clone repository containing personal configs
-    git:
-      repo: git@github.com:Freggy/configs.git
-      dest: "/home/{{ user_name }}/workspace/misc/configs"
+  #- name: Clone repository containing personal configs
+    #git:
+      #repo: git@github.com:Freggy/configs.git
+      #dest: "/home/{{ user_name }}/workspace/misc/configs"
