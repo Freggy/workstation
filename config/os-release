@@ -1,0 +1,12 @@
+NAME="Ubuntu"
+VERSION="18.3 (Tricia)"
+ID=linuxmint
+ID_LIKE=ubuntu
+PRETTY_NAME="Linux Mint 18.3"
+VERSION_ID="18.3"
+HOME_URL="https://freggy.dev"
+SUPPORT_URL="https://freggy.dev"
+BUG_REPORT_URL="https://freggy.dev"
+PRIVACY_POLICY_URL="https://freggy.dev"
+VERSION_CODENAME=bionic
+UBUNTU_CODENAME=bionic

@@ -1,8 +1,21 @@
-- hosts: all
+- hosts: localhost
 
-# TODO: clone update golang repo
 # TODO: install my ssh keys
-# TODO: clone configs repository
+  pre_tasks:
+  - name: Backup /etc/lsb-release file
+    shell: mv /etc/lsb-release /etc/lsb-release.orig
+    when: conditon
+  - name: Copy new /etc/lsb-release file
+    copy:
+       src: config/lsb-release
+       dest: /etc/lsb-release
+  - name: Backup /etc/os-release
+    shell: mv /etc/os-release /etc/os-release.orig
+  - name: Copy new /etc/os-release file
+    copy:
+      src: config/os-release
+      dest: /etc/os-release
+
   vars_files:
   - vars/common.yml
   - vars/docker.yml
