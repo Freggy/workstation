@@ -9,7 +9,6 @@
     - name: Include LinuxMint post tasks
       include_tasks: tasks/setup-post-tasks-mint.yml
       when: ansible_distribution == "Ubuntu"
-
   vars_files:
   - vars/common.yml
   - vars/docker.yml
@@ -28,5 +27,5 @@
   - protobuf-go
   - terraform
   tasks:
-    - name: Include LinuxMint post tasks
+    - name: Include main tasks
       include_tasks: tasks/main.yml

@@ -1,2 +1,2 @@
 - name: Install proto-gen for Golang
-  shell: /usr/local/go/bin/go get -u github.com/golang/protobuf/protoc-gen-go
+  shell: "{{ go_install_folder }}/go/bin/go get -u github.com/golang/protobuf/protoc-gen-go"
