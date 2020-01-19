@@ -2,13 +2,19 @@
   get_url:
     url: https://github.com/protocolbuffers/protobuf/releases/download/v3.11.2/protoc-3.11.2-linux-x86_64.zip
     dest: /tmp/proto.zip
+- name: Create proto dir
+  file:
+    path: /tmp/proto
+    state: directory
 - name: Unzip
   unarchive:
     src: /tmp/proto.zip
     dest: /tmp/proto
 - name: Move protoc binary
   shell: mv /tmp/proto/bin/protoc /usr/local/bin/protoc
+- name: stat /usr/local/include/google
+  stat: path=/usr/local/include/google
+  register: g_stat
 - name: Move includes
   shell: mv /tmp/proto/include/google /usr/local/include/google
-
-
+  when: not g_stat.stat.exists

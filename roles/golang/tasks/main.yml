@@ -1,0 +1,18 @@
+- name: Download Golang tarball
+  get_url:
+    url: "https://dl.google.com/go/go{{ go_version }}.linux-{{ GOARCH }}.tar.gz"
+    dest: /tmp/
+- name: Untar Golang
+  shell: "tar -C /usr/local -xzf /tmp/go{{ go_version }}.linux-{{ GOARCH }}.tar.gz"
+- name: Add to $HOME/.profile
+  shell: "echo 'PATH=$PATH:/usr/local/go/bin' >> $HOME/.profile"
+- name: Export GOARCH
+  shell: "echo 'export {{ GOARCH }}' >> $HOME/.profile"
+- name: Export GOOS
+  shell: "echo 'export {{ GOOS }}' >> $HOME/.profile"
+- name: Export GO111MODULE
+  shell: "echo 'export {{ GO111MODULE }}' >> $HOME/.profile"
+- name: Export GOROOT
+  shell: "echo 'export {{ GOROOT }}' >> $HOME/.profile"
+- name: Export GOPATH
+  shell: "echo 'export {{ GOPATH }}' >> $HOME/.profile"

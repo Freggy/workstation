@@ -3,44 +3,47 @@
 # TODO: clone update golang repo
 # TODO: install my ssh keys
 # TODO: clone configs repository
-
-roles:
-  - geerlingguy.java #
-  - geerlingguy.docker #
-  - tecris.maven #
+  vars_files:
+  - vars/common.yml
+  - vars/docker.yml
+  - vars/maven.yml
+  - vars/java.yml
+  - vars/go.yml
+  - vars/terraform.yml
+  roles:
+  - geerlingguy.java
+  - geerlingguy.docker
+  - tecris.maven
   - gantsign.visual-studio-code
-  - cmprescott.chrome #
-  - fubarhouse.golang #
-  - kbrebanov.openvpn
-  - fubarhouse.rust #
+  - cmprescott.chrome
+  - golang
   - protobuf
   - protobuf-go
   - terraform
-
-tasks:
+  tasks:
   - name: Create directories
     file:
-      path: "/home/yannic/{{ item }}"
-      state: directory    
-      owner: yannic
-      group: yannic
+      path: "/home/{{ user_name }}/workspace/{{ item }}"
+      state: directory
+      owner: "{{ user_name }}"
+      group: "{{ user_name }}"
     with_items:
       - ["go", "java", "rust", "cpp", "volix", "rewinside", "misc"]
   
-  - name: Download SSH keys
-    get_url:
-      url: /some/url/{{ item }}
-      dest: "/home/yannic/.ssh/{{ item }}"
-    with_items:
-      - [""] # TODO: private SSH keys
-      - [""] # TODO: public SSH keys
+  #- name: Download SSH keys
+    #get_url:
+      #url: /some/url/{{ item }}
+      #dest: "/home/yannic/.ssh/{{ item }}"
+    #with_items:
+      #- [""] # TODO: private SSH keys
+      #- [""] # TODO: public SSH keys
 
   - name: Clone Update Golang repository
     git:
       repo: https://github.com/udhos/update-golang.git
-      dest: /home/yannic/misc/update-golang
+      dest: "/home/{{ user_name }}/workspace/misc/update-golang"
 
   - name: Clone repository containing personal configs
     git:
       repo: git@github.com:Freggy/configs.git
-      dest: /home/yannic/misc/configs
+      dest: "/home/{{ user_name }}/workspace/misc/configs"
