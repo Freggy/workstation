@@ -1,6 +1,8 @@
 - hosts: localhost
   become: yes
-# TODO: install my ssh keys
+  # Whe have to add these pre and post tasks for Linux Mint because
+  # some roles will not work since ansible_distribution will return
+  # 'Linux Minut' instead of 'Ubuntu' which causes wrong apt repo entries.
   pre_tasks:
     - name: Include LinuxMint pre tasks
       include_tasks: tasks/setup-pre-tasks-mint.yml
@@ -29,3 +31,4 @@
   tasks:
     - name: Include main tasks
       include_tasks: tasks/main.yml
+# TODO: install my ssh keys
