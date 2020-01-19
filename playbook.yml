@@ -4,17 +4,21 @@
   pre_tasks:
   - name: Backup /etc/lsb-release file
     shell: mv /etc/lsb-release /etc/lsb-release.orig
-    when: conditon
   - name: Copy new /etc/lsb-release file
     copy:
        src: config/lsb-release
        dest: /etc/lsb-release
-  - name: Backup /etc/os-release
-    shell: mv /etc/os-release /etc/os-release.orig
-  - name: Copy new /etc/os-release file
+  - name: Backup /usr/lib/os-release
+    shell: cp /usr/lib/os-release /usr/lib/os-release.orig
+  - name: Copy new /usr/lib/os-release file
     copy:
       src: config/os-release
-      dest: /etc/os-release
+      dest: /usr/lib/os-release
+  post_tasks:
+  - name: Restore /etc/lsb-release
+    shell: mv /etc/lsb-release.orig /etc/lsb-release
+  - name: Restore /usr/lib/os-release
+    shell: mv /usr/lib/os-release.orig /usr/lib/os-release
 
   vars_files:
   - vars/common.yml

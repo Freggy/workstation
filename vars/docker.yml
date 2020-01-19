@@ -1,5 +1,4 @@
 docker_edition: ce
-docker_version: "18.09"
-docker_package: "docker-{{ docker_edition }}={{ docker_version }}"
+docker_package: "docker-{{ docker_edition }}"
 docker_package_state: present
 docker_install_compose: true
