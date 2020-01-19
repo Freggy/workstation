@@ -8,6 +8,5 @@ sudo apt-get install -y ansible
 echo "INFO Installing roles"
 
 while read p; do
-  # ansible-galaxy install $p
-  echo "$p"
-done <roles
+  ansible-galaxy install $p
+done <.roles
