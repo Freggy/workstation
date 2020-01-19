@@ -4,15 +4,17 @@
     dest: /tmp/
 - name: Untar Golang
   shell: "tar -C /usr/local -xzf /tmp/go{{ go_version }}.linux-{{ GOARCH }}.tar.gz"
+- name: "Create /etc/profile.d/{{ user_name }}.sh"
+  shell: "touch /etc/profile.d/{{ user_name }}.sh"
 - name: Add to $HOME/.profile
-  shell: "echo 'PATH=$PATH:/usr/local/go/bin' >> $HOME/.profile"
+  shell: "echo 'PATH=$PATH:/usr/local/go/bin' >> /etc/profile.d/{{ user_name }}.sh"
 - name: Export GOARCH
-  shell: "echo 'export {{ GOARCH }}' >> $HOME/.profile"
+  shell: "echo 'export GOARCH={{ GOARCH }}' >> /etc/profile.d/{{ user_name }}.sh"
 - name: Export GOOS
-  shell: "echo 'export {{ GOOS }}' >> $HOME/.profile"
+  shell: "echo 'export GOOS={{ GOOS }}' >> /etc/profile.d/{{ user_name }}.sh"
 - name: Export GO111MODULE
-  shell: "echo 'export {{ GO111MODULE }}' >> $HOME/.profile"
+  shell: "echo 'export GO111MODULE={{ GO111MODULE }}' >> /etc/profile.d/{{ user_name }}.sh"
 - name: Export GOROOT
-  shell: "echo 'export {{ GOROOT }}' >> $HOME/.profile"
+  shell: "echo 'export GOROOT={{ GOROOT }}' >> /etc/profile.d/{{ user_name }}.sh"
 - name: Export GOPATH
-  shell: "echo 'export {{ GOPATH }}' >> $HOME/.profile"
+  shell: "echo 'export GOPATH={{ GOPATH }}' >> /etc/profile.d/{{ user_name }}.sh"
