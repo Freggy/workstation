@@ -1,4 +1,4 @@
-  - name: Restore /etc/lsb-release
-    shell: mv /etc/lsb-release.orig /etc/lsb-release
-  - name: Restore /usr/lib/os-release
-    shell: mv /usr/lib/os-release.orig /usr/lib/os-release
+- name: Restore /etc/lsb-release
+  shell: mv /etc/lsb-release.orig /etc/lsb-release
+- name: Restore /usr/lib/os-release
+  shell: mv /usr/lib/os-release.orig /usr/lib/os-release
