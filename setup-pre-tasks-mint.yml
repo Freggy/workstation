@@ -1,0 +1,12 @@
+ - name: Backup /etc/lsb-release file
+    shell: mv /etc/lsb-release /etc/lsb-release.orig
+  - name: Copy new /etc/lsb-release file
+    copy:
+       src: config/lsb-release
+       dest: /etc/lsb-release
+  - name: Backup /usr/lib/os-release
+    shell: cp /usr/lib/os-release /usr/lib/os-release.orig
+  - name: Copy new /usr/lib/os-release file
+    copy:
+      src: config/os-release
+      dest: /usr/lib/os-release
