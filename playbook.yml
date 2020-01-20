@@ -29,6 +29,8 @@
   - protobuf
   - protobuf-go
   - terraform
+  - kind
+  - twirp
   tasks:
     - name: Include main tasks
       include_tasks: tasks/main.yml
