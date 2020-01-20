@@ -1,16 +1,5 @@
 - hosts: localhost
   become: yes
-  # Whe have to add these pre and post tasks for Linux Mint because
-  # some roles will not work since ansible_distribution will return
-  # 'Linux Minut' instead of 'Ubuntu' which causes wrong apt repo entries.
-  pre_tasks:
-    - name: Include LinuxMint pre tasks
-      include_tasks: tasks/setup-pre-tasks-mint.yml
-      when: ansible_distribution == "LinuxMint"
-  post_tasks:
-    - name: Include LinuxMint post tasks
-      include_tasks: tasks/setup-post-tasks-mint.yml
-      when: ansible_distribution == "Ubuntu"
   vars_files:
   - vars/common.yml
   - vars/docker.yml
