@@ -1,0 +1,6 @@
+- name: Download Kubernetes in Docker to /usr/local/bin
+  get_url:
+    url: "https://github.com/kubernetes-sigs/kind/releases/download/{{ kind_version }}/kind-Linux-amd64"
+    dest: /usr/local/bin/kind
+- name: chmod +x kind
+  file: dest=/usr/local/bin/kind mode=a+x

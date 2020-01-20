@@ -18,6 +18,7 @@
   - vars/java.yml
   - vars/go.yml
   - vars/terraform.yml
+  - vars/kind.yml
   roles:
   - geerlingguy.java
   - geerlingguy.docker
